@@ -1,18 +1,10 @@
-splash_image = Image("splash.png");
+splash_image = Image("{image}");
 splash_sprite = Sprite(splash_image);
 width = Window.GetWidth();
 height = Window.GetHeight();
-x = width/2 - splash_image.GetWidth()/2;
-y = height/3 - 6;
-splash_sprite.SetPosition(x, y, 80);    
-
-splash_image = Image("splash.png");
-splash_sprite = Sprite(splash_image);
-width = Window.GetWidth();
-height = Window.GetHeight();
-x = width/2 - splash_image.GetWidth()/2;
-y = height/3 - 6;
-splash_sprite.SetPosition(x, y, 80);    
+x = {x};
+y = {y};
+splash_sprite.SetPosition(x, y, 80);
 
 
 #----------------------------------------- Dialogue --------------------------------
@@ -25,9 +17,9 @@ fun dialog_setup()
     local.lock;
     local.entry;
     
-    box.image = Image("box.png");
-    lock.image = Image("lock.png");
-    entry.image = Image("entry.png");
+    box.image = Image("/usr/share/plymouth/themes/spinner/box.png");
+    lock.image = Image("/usr/share/plymouth/themes/spinner/lock.png");
+    entry.image = Image("/usr/share/plymouth/themes/spinner/entry.png");
     
     box.sprite = Sprite(box.image);
     box.x = Window.GetWidth()  * 0.50 - box.image.GetWidth ()/2;

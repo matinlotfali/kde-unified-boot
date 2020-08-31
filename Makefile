@@ -1,22 +1,25 @@
 .PHONY: all bgrt no-bgrt clean install uninstall
 
+x = $(file < /sys/firmware/acpi/bgrt/xoffset)
+y = $(file < /sys/firmware/acpi/bgrt/yoffset)
+
 all: bgrt
 
 no-bgrt:
 	python3 make.py
-	cp /usr/share/plymouth/themes/spinner/bullet.png ./unified-bgrt/bullet.png
-	cp /usr/share/plymouth/themes/spinner/entry.png ./unified-bgrt/entry.png
-	cp /usr/share/plymouth/themes/spinner/lock.png ./unified-bgrt/lock.png
-	cp /usr/share/plymouth/themes/spinner/watermark.png ./unified-bgrt/splash.png
-	cp /usr/share/plymouth/themes/spinner/watermark.png ./UnifiedSplash/contents/splash/images/splash.png
+	sed -i 's,{image},/usr/share/plymouth/themes/spinner/watermark.png,' ./unified-bgrt/bgrt.script
+	sed -i 's,{image},/usr/share/plymouth/themes/spinner/watermark.png,' ./UnifiedSplash/contents/splash/Splash.qml
+	sed -i 's,{x},width/2 - splash_image.GetWidth()/2,' ./unified-bgrt/bgrt.script
+	sed -i 's,{y},height/3,' ./unified-bgrt/bgrt.script
+	sed -i 's,{y},height/3,' ./UnifiedSplash/contents/splash/Splash.qml
 
 bgrt:
 	python3 make.py
-	cp /usr/share/plymouth/themes/spinner/bullet.png ./unified-bgrt/bullet.png
-	cp /usr/share/plymouth/themes/spinner/entry.png ./unified-bgrt/entry.png
-	cp /usr/share/plymouth/themes/spinner/lock.png ./unified-bgrt/lock.png
-	cp /sys/firmware/acpi/bgrt/image ./unified-bgrt/splash.png
-	cp /sys/firmware/acpi/bgrt/image ./UnifiedSplash/contents/splash/images/splash.png
+	sed -i 's,{image},/sys/firmware/acpi/bgrt/image,' ./unified-bgrt/bgrt.script
+	sed -i 's,{image},/sys/firmware/acpi/bgrt/image,' ./UnifiedSplash/contents/splash/Splash.qml
+	sed -i 's,{x},{$x},' ./unified-bgrt/bgrt.script
+	sed -i 's,{y},{$y},' ./unified-bgrt/bgrt.script
+	sed -i 's,{y},{$y},' ./UnifiedSplash/contents/splash/Splash.qml
 
 clean:
 	mv ./unified-bgrt/box.png ./unified-bgrt/box
