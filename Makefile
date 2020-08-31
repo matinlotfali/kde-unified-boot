@@ -18,7 +18,7 @@ bgrt:
 	cp /sys/firmware/acpi/bgrt/image ./unified-bgrt/image
 	cp /sys/firmware/acpi/bgrt/image ./UnifiedSplash/contents/splash/images/image
 	sed -i 's,{image},image,' ./unified-bgrt/bgrt.script
-	sed -i 's,{image},image,' ./UnifiedSplash/contents/splash/Splash.qml
+	sed -i 's,{image},images/image,' ./UnifiedSplash/contents/splash/Splash.qml
 	sed -i 's,{x},$x,' ./unified-bgrt/bgrt.script
 	sed -i 's,{y},$y,' ./unified-bgrt/bgrt.script
 	sed -i 's,{y},$y,' ./UnifiedSplash/contents/splash/Splash.qml
