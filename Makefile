@@ -15,11 +15,13 @@ no-bgrt:
 
 bgrt:
 	python3 make.py
-	sed -i 's,{image},/sys/firmware/acpi/bgrt/image,' ./unified-bgrt/bgrt.script
-	sed -i 's,{image},/sys/firmware/acpi/bgrt/image,' ./UnifiedSplash/contents/splash/Splash.qml
-	sed -i 's,{x},{$x},' ./unified-bgrt/bgrt.script
-	sed -i 's,{y},{$y},' ./unified-bgrt/bgrt.script
-	sed -i 's,{y},{$y},' ./UnifiedSplash/contents/splash/Splash.qml
+	cp /sys/firmware/acpi/bgrt/image ./unified-bgrt/image
+	cp /sys/firmware/acpi/bgrt/image ./UnifiedSplash/contents/splash/images/image
+	sed -i 's,{image},image,' ./unified-bgrt/bgrt.script
+	sed -i 's,{image},image,' ./UnifiedSplash/contents/splash/Splash.qml
+	sed -i 's,{x},$x,' ./unified-bgrt/bgrt.script
+	sed -i 's,{y},$y,' ./unified-bgrt/bgrt.script
+	sed -i 's,{y},$y,' ./UnifiedSplash/contents/splash/Splash.qml
 
 clean:
 	mv ./unified-bgrt/box.png ./unified-bgrt/box
@@ -31,4 +33,5 @@ uninstall:
 
 install:
 	cp -r ./unified-bgrt /usr/share/plymouth/themes/
+	update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/unified-bgrt/unified-bgrt.plymouth 10
 
