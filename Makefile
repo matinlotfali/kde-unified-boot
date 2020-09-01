@@ -34,6 +34,4 @@ uninstall:
 install:
 	cp -r ./unified-bgrt /usr/share/plymouth/themes/
 	update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/unified-bgrt/unified-bgrt.plymouth 10
-	update-alternatives --set default.plymouth /usr/share/plymouth/themes/unified-bgrt/unified-bgrt.plymouth
-	update-initramfs -u -k all
 
