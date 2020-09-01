@@ -3,7 +3,7 @@
 This project is a combination of a BGRT Plymouth and a Plasma Splash screen
 that one shows a progress bar until 50% and the other continues until a smooth transition to the desktop.
 
-![Lenovo Boot](./unified.GIF)
+![Lenovo Boot](https://media.giphy.com/media/gHiKOCt6YI0YkNEyzo/giphy.gif)
 
 # Installation
 1. Prepare the repository
