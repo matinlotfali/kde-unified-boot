@@ -16,9 +16,9 @@ no-bgrt:
 bgrt:
 	python3 make.py
 	cp /sys/firmware/acpi/bgrt/image ./unified-bgrt/image
-	cp /sys/firmware/acpi/bgrt/image ./UnifiedSplash/contents/splash/images/image
+	cp /sys/firmware/acpi/bgrt/image ./UnifiedSplash/contents/splash/images/image.png
 	sed -i 's,{image},image,' ./unified-bgrt/bgrt.script
-	sed -i 's,{image},image,' ./UnifiedSplash/contents/splash/Splash.qml
+	sed -i 's,{image},images/image.png,' ./UnifiedSplash/contents/splash/Splash.qml
 	sed -i 's,{x},$x,' ./unified-bgrt/bgrt.script
 	sed -i 's,{y},$y,' ./unified-bgrt/bgrt.script
 	sed -i 's,{y},$y,' ./UnifiedSplash/contents/splash/Splash.qml
@@ -34,4 +34,6 @@ uninstall:
 install:
 	cp -r ./unified-bgrt /usr/share/plymouth/themes/
 	update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/unified-bgrt/unified-bgrt.plymouth 10
+	update-alternatives --set default.plymouth /usr/share/plymouth/themes/unified-bgrt/unified-bgrt.plymouth
+	update-initramfs -u -k all
 

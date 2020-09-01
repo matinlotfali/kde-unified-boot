@@ -1,9 +1,9 @@
-splash_image = Image("{image}");
+splash_image = Image("image");
 splash_sprite = Sprite(splash_image);
 width = Window.GetWidth();
 height = Window.GetHeight();
-x = {x};
-y = {y};
+x = 410;
+y = 250;
 splash_sprite.SetPosition(x, y, 80);
 
 

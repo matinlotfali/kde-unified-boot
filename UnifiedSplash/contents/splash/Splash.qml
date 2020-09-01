@@ -12,9 +12,9 @@ Rectangle {
     }    
     
     Image {
-        source: "{image}"
+        source: "images/image"
         anchors.horizontalCenter: parent.horizontalCenter        
-        y: {y}
+        y: 250
     }
 //     Image {
 //         source: "images/watermark.png"
