@@ -11,8 +11,7 @@ that one shows a progress bar until 50% and the other continues until a smooth t
        sudo apt install python3-aggdraw plymouth-theme-spinner git make
        git clone https://github.com/matinlotfali/kde-unified-boot.git    
        cd kde-unified-boot/        
-       make ## On UEFI:        
-       make no-bgrt ## On BIOS:
+       make
     
 2. Install the plymouth and the splash
 

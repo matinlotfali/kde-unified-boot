@@ -2,4 +2,6 @@
 unified-bgrt/progress-*.png
 unified-bgrt/splash.png
 unified-bgrt/image
+unified-bgrt/bgrt.script
 UnifiedSplash/contents/splash/images/image
+UnifiedSplash/contents/splash/Splash.qml
