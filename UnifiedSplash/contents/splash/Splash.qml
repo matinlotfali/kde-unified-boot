@@ -38,7 +38,7 @@ Rectangle {
                 top: parent.top
                 bottom: parent.bottom
             }
-            width: parent.width*3/4 + (parent.width / 6) * (stage)/4
+            width: parent.width/2 + (parent.width / 6) * (stage)/2
             color: "#ffffff"
             Behavior on width { 
                 PropertyAnimation {
