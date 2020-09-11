@@ -1,3 +1,5 @@
+import os
+
 import aggdraw as aggdraw
 from PIL import Image
 
@@ -5,6 +7,7 @@ size = (256, 8)
 backgroundColor = 0x2a2a2b
 foregroundColor = 0xffffff
 transparent = 0x000000
+black = 0xff000000
 
 
 def rounded_rectangle(draw, x,y, w, h, corner_radius, fill=None, outline=None):
@@ -30,4 +33,19 @@ for i in range(0,128):
     rounded_rectangle(draw, 0,0,i,       size[1], 1.5, foregroundColor)
     draw.flush()
     im.save('unified-bgrt/progress-'+str(i)+'.png')
+
+if os.path.exists("/sys/firmware/acpi/bgrt/image"):
+    logo = Image.open("/sys/firmware/acpi/bgrt/image")
+    with open("/sys/firmware/acpi/bgrt/yoffset") as file:
+        yoffset = int(file.readline()[:-1])
+
+    screen_height = int(os.popen("xrandr | grep '*' | grep -Po '(?<=x)(.*?)(?=\ )'").read()[:-1])
+    im = Image.new('RGBA', (logo.width, screen_height-2*yoffset), black)
+    im.paste(logo)
+
+    im.save("unified-bgrt/image.png")
+    im.save("UnifiedSplash/contents/splash/images/image.png")
+else:
+    os.system("cp /usr/share/plymouth/themes/spinner/watermark.png unified-bgrt/image.png")
+    os.system("cp /usr/share/plymouth/themes/spinner/watermark.png UnifiedSplash/contents/splash/images/image.png")
 
