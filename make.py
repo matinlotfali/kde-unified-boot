@@ -46,6 +46,6 @@ if os.path.exists("/sys/firmware/acpi/bgrt/image"):
     im.save("unified-bgrt/image.png")
     im.save("UnifiedSplash/contents/splash/images/image.png")
 else:
-    os.system("cp /usr/share/plymouth/themes/spinner/watermark.png unified-bgrt/image.png")
-    os.system("cp /usr/share/plymouth/themes/spinner/watermark.png UnifiedSplash/contents/splash/images/image.png")
+    os.system("cp /usr/share/plymouth/ubuntu-logo.png unified-bgrt/image.png")
+    os.system("cp /usr/share/plymouth/ubuntu-logo.png UnifiedSplash/contents/splash/images/image.png")
 
