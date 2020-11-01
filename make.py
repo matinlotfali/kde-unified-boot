@@ -1,6 +1,11 @@
-import os
+try:
+    import aggdraw
+except ImportError:
+    from pip._internal import main as pip
+    pip(['install', '--user', 'aggdraw'])
+    import aggdraw
 
-import aggdraw as aggdraw
+import os
 from PIL import Image
 
 size = (256, 8)
@@ -46,6 +51,6 @@ if os.path.exists("/sys/firmware/acpi/bgrt/image"):
     im.save("unified-bgrt/image.png")
     im.save("UnifiedSplash/contents/splash/images/image.png")
 else:
-    os.system("cp /usr/share/plymouth/themes/spinner/watermark.png unified-bgrt/image.png")
-    os.system("cp /usr/share/plymouth/themes/spinner/watermark.png UnifiedSplash/contents/splash/images/image.png")
+    os.system("cp /usr/share/plymouth/ubuntu-logo.png unified-bgrt/image.png")
+    os.system("cp /usr/share/plymouth/ubuntu-logo.png UnifiedSplash/contents/splash/images/image.png")
 

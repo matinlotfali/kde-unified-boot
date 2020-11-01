@@ -12,7 +12,7 @@ that one shows a progress bar until 50% and the other continues until a smooth t
        
 2. Build images
            
-       sudo apt install python3-aggdraw plymouth-theme-spinner git make
+       sudo apt install python3-pip git make
        cd kde-unified-boot/        
        make
     
