@@ -1,6 +1,11 @@
-import os
+try:
+    import aggdraw
+except ImportError:
+    from pip._internal import main as pip
+    pip(['install', '--user', 'aggdraw'])
+    import aggdraw
 
-import aggdraw as aggdraw
+import os
 from PIL import Image
 
 size = (256, 8)
