@@ -1,8 +1,5 @@
 .PHONY: all main clean install uninstall
 
-x = $(file < /sys/firmware/acpi/bgrt/xoffset)
-y = $(file < /sys/firmware/acpi/bgrt/yoffset)
-
 all: main
 
 main:
