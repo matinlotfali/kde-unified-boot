@@ -37,8 +37,9 @@ if os.path.exists("/sys/firmware/acpi/bgrt/image"):
     logo = Image.open("/sys/firmware/acpi/bgrt/image")
     with open("/sys/firmware/acpi/bgrt/yoffset") as file:
         yoffset = int(file.readline()[:-1])
-
-    screen_height = int(os.popen("xrandr | grep '*' | grep -Po '(?<=x)(.*?)(?=\ )'").read()[:-1])
+    with open("/sys/class/graphics/fb0/virtual_size") as file:
+        screen_height = int(file.readline()[:-1].split(',')[1])
+        
     im = Image.new('RGBA', (logo.width, screen_height-2*yoffset), black)
     im.paste(logo)
 
