@@ -8,7 +8,7 @@ that one shows a progress bar until 50% and the other continues until a smooth t
 # Installation
 1. Prepare the repository
            
-       git clone https://github.com/matinlotfali/kde-unified-boot.git
+       git clone https://github.com/gtgt/kde-unified-boot.git
        
 2. Build images
            
