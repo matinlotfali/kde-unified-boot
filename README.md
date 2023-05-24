@@ -12,7 +12,7 @@ that one shows a progress bar until 50% and the other continues until a smooth t
        
 2. Build images
            
-       sudo apt install python3-aggdraw git make
+       sudo apt install python3-aggdraw python3-pil git make
        
        cd kde-unified-boot/        
        make
@@ -20,4 +20,4 @@ that one shows a progress bar until 50% and the other continues until a smooth t
 3. Install the plymouth and the splash
 
        kpackagetool5 -i "UnifiedSplash"
-       sudo make install       
+       sudo make install
