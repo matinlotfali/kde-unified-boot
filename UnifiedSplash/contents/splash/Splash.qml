@@ -1,4 +1,5 @@
 import QtQuick 2.1
+import QtQuick.Window 2.2
 
 
 Rectangle {
@@ -15,6 +16,7 @@ Rectangle {
         source: "images/image.png"
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
+        scale: 1/Screen.devicePixelRatio
     }
 //     Image {
 //         source: "images/watermark.png"
@@ -31,6 +33,7 @@ Rectangle {
         y: root.height * 0.7 - 2
         height: 8
         width: height*32
+        scale: 1/Screen.devicePixelRatio
         Rectangle {
             radius: 3
             anchors {
