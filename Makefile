@@ -6,9 +6,8 @@ main:
 	python3 make.py
 
 clean:
-	mv ./unified-bgrt/box.png ./unified-bgrt/box
-	rm -f ./unified-bgrt/*.png
-	mv ./unified-bgrt/box ./unified-bgrt/box.png
+	rm -f ./unified-bgrt/images/progress
+	rm -f ./unified-bgrt/images/logo.png
 	rm -f ./UnifiedSplash/contents/splash/images/image.png
 
 uninstall:
