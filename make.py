@@ -31,7 +31,7 @@ for i in range(0,128):
     rounded_rectangle(draw, 0,0,size[0], size[1], 2, backgroundColor)
     rounded_rectangle(draw, 0,0,i,       size[1], 1.5, foregroundColor)
     draw.flush()
-    im.save('unified-bgrt/progress-'+str(i)+'.png')
+    im.save('unified-bgrt/images/progress/progress-'+str(i)+'.png')
 
 if os.path.exists("/sys/firmware/acpi/bgrt/image"):
     logo = Image.open("/sys/firmware/acpi/bgrt/image")
@@ -43,9 +43,9 @@ if os.path.exists("/sys/firmware/acpi/bgrt/image"):
     im = Image.new('RGBA', (logo.width, screen_height-2*yoffset), black)
     im.paste(logo)
 
-    im.save("unified-bgrt/image.png")
+    im.save("unified-bgrt/images/logo.png")
     im.save("UnifiedSplash/contents/splash/images/image.png")
 else:
-    os.system("cp /usr/share/plymouth/ubuntu-logo.png unified-bgrt/image.png")
+    os.system("cp /usr/share/plymouth/ubuntu-logo.png unified-bgrt/images/logo.png")
     os.system("cp /usr/share/plymouth/ubuntu-logo.png UnifiedSplash/contents/splash/images/image.png")
 

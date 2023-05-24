@@ -1,4 +1,4 @@
 .idea
-unified-bgrt/progress-*.png
-unified-bgrt/image.png
+unified-bgrt/images/progress/*
+unified-bgrt/images/logo.png
 UnifiedSplash/contents/splash/images/image.png
